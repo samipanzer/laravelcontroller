@@ -6,7 +6,6 @@ class BasicController extends Controller {
     public function getIndex()
     {
     
-
     return Response::json(array (
     	             'title'=>'Fifth Avenue Leasing and Rental | Car Leasing and Rental',
     	             'users'=>User::select('name','email','phone','image')->where('type','=','admin')->first(),
@@ -14,7 +13,15 @@ class BasicController extends Controller {
                      'vehicles'=>Vehicle::where('available','=','1')->where('reserved','=','0')->get()
     	             ));
 
+    }
 
+
+    public function getNewsletter()
+    {
+        return Response::json(array(
+                        'title'=>'Admin Panel | Fifth Avenue Leasing and Rental',
+                        'newsletters'=> Newsletter::orderBy('id','DESC')->paginate(20)
+                        ));
     }
 
 
