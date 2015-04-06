@@ -8,10 +8,10 @@ class BasicController extends Controller {
     
 
     return Response::json(array (
-    	             'title','Fifth Avenue Leasing and Rental | Car Leasing and Rental',
-    	             'users',User::select('name','email','phone','image')->where('type','=','admin')->first(),
-    	             'slides',Slide::all(),
-                     'vehicles',Vehicle::where('available','=','1')->where('reserved','=','0')->get()
+    	             'title'=>'Fifth Avenue Leasing and Rental | Car Leasing and Rental',
+    	             'users'=>User::select('name','email','phone','image')->where('type','=','admin')->first(),
+    	             'slides'=>Slide::all(),
+                     'vehicles'=>Vehicle::where('available','=','1')->where('reserved','=','0')->get()
     	             ));
 
 
